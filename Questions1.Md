@@ -216,3 +216,7 @@ Memoization and Memoizing Hooks: Use memoization techniques to cache expensive c
 Code Splitting and Lazy Loading: Split large React applications into smaller chunks using code splitting. This allows you to load only the necessary code for the current route or view, reducing initial load times and memory usage. Use React's lazy and Suspense features to lazily load components and display loading indicators while components are being fetched.
 
 Memory Profiling and Optimization: Utilize tools like the React Developer Tools, Chrome DevTools, and performance monitoring libraries to profile memory usage, identify performance bottlenecks, and optimize your React application's memory footprint.
+
+17. for of > used for Strings, Arrays
+    for in > used to iterate Objects
+    Usage of Sort, Split, reverse, join
