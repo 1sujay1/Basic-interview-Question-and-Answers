@@ -366,6 +366,79 @@ function App() {
 25 Practice TODO list, longest string and other programs from below URL
 https://github.com/1sujay1/react_login_register
 
+26. What is Closure?
+Inner function forms a lexical scope with outside variable and forms a bundle.
+
+Closures are powerful in JavaScript as they allow functions to retain access to variables from their parent scopes even after the parent function has finished executing. They are commonly used in scenarios like data privacy, encapsulation, and creating factory functions.
+
+function outerFunction() {
+    // Variable defined in the outer function
+    let outerVar = 'I am outer';
+
+    // Inner function (closure)
+    function innerFunction() {
+        // Accessing outerVar from the outer function
+        console.log(outerVar);
+    }
+
+    // Returning the inner function
+    return innerFunction;
+}
+
+// Call the outer function, which returns the inner function
+const closureExample = outerFunction();
+
+// Call the inner function (closure)
+closureExample(); // Output: "I am outer"
+
+27. What is clustering in NODE JS?
+
+In Node.js, clustering is a technique used to improve the performance and scalability of applications by distributing the workload across multiple processes, utilizing all available CPU cores. This is particularly useful for applications that have high CPU utilization or handle a large number of concurrent requests.
+
+Node.js provides a built-in module called cluster that allows you to create a cluster of worker processes. The master process manages the worker processes and distributes incoming connections or tasks among them.
+
+Here's a basic example of how clustering works in Node.js:
+
+const cluster = require('cluster');
+const http = require('http');
+const numCPUs = require('os').cpus().length;
+
+if (cluster.isMaster) {
+    console.log(`Master ${process.pid} is running`);
+
+    // Fork worker processes based on the number of CPU cores
+    for (let i = 0; i < numCPUs; i++) {
+        cluster.fork();
+    }
+
+    // Listen for the exit event and restart worker processes if they crash
+    cluster.on('exit', (worker, code, signal) => {
+        console.log(`Worker ${worker.process.pid} died`);
+        cluster.fork();
+    });
+} else {
+    // Worker processes handle incoming requests
+    http.createServer((req, res) => {
+        res.writeHead(200);
+        res.end('Hello World\n');
+    }).listen(8000);
+
+    console.log(`Worker ${process.pid} started`);
+}
+
+In this example:
+
+The master process (identified by cluster.isMaster) is responsible for spawning and managing worker processes.
+For each CPU core, the master process forks a worker process using cluster.fork().
+Each worker process (identified by cluster.isWorker) listens for incoming HTTP requests and handles them.
+If a worker process crashes or exits for any reason, the master process restarts it automatically.
+By distributing the workload across multiple processes, clustering can improve the application's performance, throughput, and resilience to failures. It allows Node.js applications to take advantage of the multi-core architecture of modern CPUs. However, it's important to note that clustering is not suitable for all types of applications, and its effectiveness depends on the nature of the workload and the application's architecture.
+
+
+
+
+
+
 
 
 
