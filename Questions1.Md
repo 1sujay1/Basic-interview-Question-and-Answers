@@ -253,6 +253,126 @@ function greet(name) {
 }
 
 console.log(greet.apply(null, ['John']));
+PUT: put is used in redux-saga for dispatching actions.
+
+
+20. what are generator functions in react?
+In JavaScript, generator functions are special functions that can pause execution and yield multiple values one at a time. They are defined using the function* syntax and contain one or more yield statements.
+
+function* myGenerator() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+
+const generator = myGenerator();
+
+console.log(generator.next()); // { value: 1, done: false }
+console.log(generator.next()); // { value: 2, done: false }
+console.log(generator.next()); // { value: 3, done: false }
+console.log(generator.next()); // { value: undefined, done: true }
+
+21. what is currying in js?
+Currying is a functional programming concept in JavaScript (and many other languages) where a function with multiple arguments is transformed into a sequence of functions, each taking a single argument.
+// Non-curried function
+function add(a, b) {
+    return a + b;
+}
+
+console.log(add(2, 3)); // Output: 5
+
+// Curried version of add function
+function curryAdd(a) {
+    return function(b) {
+        return a + b;
+    };
+}
+
+const addTwo = curryAdd(2);
+console.log(addTwo(3)); // Output: 5
+
+
+22.What is the Virtual DOM?
+The Virtual DOM is a lightweight, in-memory representation of the actual DOM in a React application.
+React uses the Virtual DOM to perform efficient updates to the UI. When the state of a component changes, React first updates the Virtual DOM instead of the actual DOM.
+React then calculates the difference between the Virtual DOM and the actual DOM (reconciliation) and only updates the parts of the DOM that have changed, minimizing the number of DOM manipulations.
+23. How does React Router work?
+
+React Router is a popular routing library for React that enables navigation between different components in a React application.
+
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+ <Routes>
+          <Route exact path="/" element={<ProductList />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/simple-react-router" element={<ProductList />} />
+          <Route path="*" element={<ProductList />} />
+  </Routes>
+
+24. Usage of CreateContext
+
+import React,{createContext} from 'react'
+const MyContext = createContext();
+
+
+function ContextProvider({children}){
+return (
+<MyContext.Provider value ={{name:"welcome to Sujay's World"}}>
+{children}
+</MyContext.Provider>
+)
+}
+
+import React, { useContext } from "react";
+import { MyContext } from "./ContextProvider";
+const { name } = useContext(MyContext);
+
+In Store
+
+
+import { createStore, combineReducers } from "redux";
+import reducers from "./reducers";
+const rootReducer = combineReducers(reducers);
+const store = createStore(rootReducer);
+
+In app.js
+
+import store from "./redux/store";
+import { Provider } from "react-redux";
+import ContextProvider from "./components/ContextProvider";
+function App() {
+  return (
+    <Router>
+      {/* <ContextProvider> */}
+      <Provider store={store}>
+        <Home />
+        <Routes>
+          <Route path="/signIn" element={<SignIn />} />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/timer" element={<Timer />} />
+          <Route path="/todo" element={<Todo />} />
+          <Route path="/todos" element={<TodoTest />} />
+          <Route path="/context" element={<Context />} />
+          <Route path="/bidirec" element={<BiDirectional />} />
+          <Route path="/child1" element={<ChildComponent1 />} />
+        </Routes>
+      </Provider>
+      {/* </ContextProvider> */}
+    </Router>
+  );
+}
+
+25 Practice TODO list, longest string and other programs from below URL
+https://github.com/1sujay1/react_login_register
+
+
+
+
+
+
+
+
 
 
 
