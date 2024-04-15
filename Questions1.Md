@@ -220,3 +220,45 @@ Memory Profiling and Optimization: Utilize tools like the React Developer Tools,
 17. for of > used for Strings, Arrays
     for in > used to iterate Objects
     Usage of Sort, Split, reverse, join
+18. useMemo is used to memoize the result of a function so that the function is not re-executed on every render unless its dependencies change.
+function MyComponent({ a, b }) {
+    const result = useMemo(() => {
+        // Expensive calculation
+        return a + b;
+    }, [a, b]); // Dependency array
+
+    return <div>{result}</div>;
+}
+useCallback is used to memoize callbacks, preventing unnecessary re-renders of child components that depend on them.
+function MyComponent({ onClick }) {
+    const handleClick = useCallback(() => {
+        // Handle click
+        onClick();
+    }, [onClick]); // Dependency array
+
+    return <button onClick={handleClick}>Click Me</button>;
+}
+
+19. CALL and APPLY
+CALL: The call method is used to invoke a function with a specified this value and individual arguments.
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+console.log(greet.call(null, 'John'));
+APPLY:The apply method is similar to call, but it accepts arguments as an array.
+It also allows you to specify the this context like call.
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+console.log(greet.apply(null, ['John']));
+
+
+
+
+
+
+
+
+
