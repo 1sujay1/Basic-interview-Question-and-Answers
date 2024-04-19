@@ -434,9 +434,110 @@ Each worker process (identified by cluster.isWorker) listens for incoming HTTP r
 If a worker process crashes or exits for any reason, the master process restarts it automatically.
 By distributing the workload across multiple processes, clustering can improve the application's performance, throughput, and resilience to failures. It allows Node.js applications to take advantage of the multi-core architecture of modern CPUs. However, it's important to note that clustering is not suitable for all types of applications, and its effectiveness depends on the nature of the workload and the application's architecture.
 
+28. What design pattern is used in node JS?
 
+The factory method pattern
+The singleton pattern
+The builder pattern
+The prototype pattern
+The observer pattern
 
+The Singleton Pattern :
 
+The Singleton pattern is one of the most important creational design patterns, ensuring that an abstract class in the code only has one instance that offers a global point to the developers who want to access this instance for the entire application. Developers can use this Node.js design patterns to enable the shared resource’s utilization without the risk of creating multiple instances throughout the application.
+
+The Builder Pattern :
+
+The builder design pattern is another one of the most popular types of design patterns. This pattern enables developers to separate the construction of objects  from their representation. This approach enables the developers to simplify the code that is complex and also creates complex objects. To understand the builder design pattern more clearly, let us go through an example. Here is an example in which classes named Car and CarBuilder enable users to create a car.
+
+The Observer Pattern
+The Observer pattern is also one of the popular types of Node.js patterns when it comes to creating applications with simple approaches. A behavioral design pattern known as a one-to-many dependency injection enables developers to define a dependency between the program’s objects. This implies that when an object in the code changes its state, it automatically notifies all dependent objects about the change, and they update accordingly. Using this pattern is beneficial when Node.js developers want to implement real-time updates, such as  push notifications in their programs.
+To understand this concept clearly, let’s have a look at this example. An application for the stock exchange requires the implementation of an update using the Observer pattern whenever a stock price changes. In this case, when the stock price changes, the observer objects will get notified immediately and an automatic update will occur to ensure that the users get the latest data on time.
+
+The Factory Method Pattern
+Another popular Node.js design pattern is the factory pattern. A creational design pattern known as a type of pattern is capable of creating objects without the need to specify the exact class of objects that must be created. This approach proves very helpful in Node.js when developers intend to create a program where they have to create the same object or it might get created at multiple places in the entire application.
+
+With the help of the Factory design pattern, the Node.js developers can make a single object of the application act as a factory and that object will be then responsible for creating new objects. The object that acts like a factory can configure itself to return different types of objects based on the inputs it receives from the client side. This approach makes it easier for any application to change its object creation process without any requirement of modifying the code in various places.
+
+The Prototype Pattern
+The last Node.js design pattern in our list is the prototype pattern. One must know that JavaScript is a very popular prototype-based language before understanding it. This language makes use of prototypal inheritance, implying that each object in this approach has the capability to inherit from other objects. Developers can, therefore, use the prototype design patterns to create objects by cloning the value of the prototype, known as a sample object. This pattern ensures that the prototype acts as the blueprint for all the new objects created for an application when developers use it.
+
+30 :Functional Prototype
+
+// Define a constructor function
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// Add a method to the prototype
+Person.prototype.greet = function() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+};
+
+// Create instances of the Person object
+const person1 = new Person('Alice', 30);
+const person2 = new Person('Bob', 25);
+
+// Call the greet method on instances
+person1.greet(); // Output: Hello, my name is Alice and I am 30 years old.
+person2.greet(); // Output: Hello, my name is Bob and I am 25 years old.
+
+OR
+
+// Define a class
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Add a method
+    greet() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    }
+}
+
+// Create instances of the Person class
+const person1 = new Person('Alice', 30);
+const person2 = new Person('Bob', 25);
+
+// Call the greet method on instances
+person1.greet(); // Output: Hello, my name is Alice and I am 30 years old.
+person2.greet(); // Output: Hello, my name is Bob and I am 25 years old.
+
+31. Object Prototype
+// Adding a custom method to the Object prototype
+Object.prototype.printKeys = function() {
+    for (let key in this) {
+        if (this.hasOwnProperty(key)) {
+            console.log(key);
+        }
+    }
+};
+
+// Creating an object
+const obj = { a: 1, b: 2, c: 3 };
+
+// Using the custom method
+obj.printKeys(); // Output: a, b, c
+
+32. Array Prototype
+
+// Adding a custom method to the Array prototype
+Array.prototype.customSum = function() {
+    let sum = 0;
+    for (let i = 0; i < this.length; i++) {
+        sum += this[i];
+    }
+    return sum;
+};
+
+// Creating an array
+const arr = [1, 2, 3, 4, 5];
+
+// Using the custom method
+console.log(arr.customSum()); // Output: 15 (1 + 2 + 3 + 4 + 5)
 
 
 
