@@ -539,6 +539,9 @@ const arr = [1, 2, 3, 4, 5];
 // Using the custom method
 console.log(arr.customSum()); // Output: 15 (1 + 2 + 3 + 4 + 5)
 
+33. What is the Algorithm used in Load Balancing of Kubernetes?
+Ans: round-robin algorithm
+The round-robin algorithm is among the most popular. In round-robin, requests are distributed sequentially to each backend pod in the order they were added.
 
 
 
