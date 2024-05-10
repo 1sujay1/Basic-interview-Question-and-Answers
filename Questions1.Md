@@ -542,6 +542,35 @@ console.log(arr.customSum()); // Output: 15 (1 + 2 + 3 + 4 + 5)
 33. What is the Algorithm used in Load Balancing of Kubernetes?
 Ans: round-robin algorithm
 The round-robin algorithm is among the most popular. In round-robin, requests are distributed sequentially to each backend pod in the order they were added.
+34 CALL APPLY BIND
+The call() method is used to invoke a function with a specified this value and arguments provided individually
+function greet() {
+    return `Hello, ${this.name}!`;
+}
+
+const person = { name: 'John' };
+console.log(greet.call(person));
+The apply() method is similar to call(), but it accepts arguments as an array.
+function greet() {
+    return `Hello, ${this.name}!`;
+}
+
+const person = { name: 'John' };
+console.log(greet.apply(person)); // Output: Hello, John!
+
+The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+function greet() {
+    return `Hello, ${this.name}!`;
+}
+
+const person = { name: 'John' };
+const greetPerson = greet.bind(person);
+console.log(greetPerson()); // Output: Hello, John!
+
+
+
+
+
 
 
 
