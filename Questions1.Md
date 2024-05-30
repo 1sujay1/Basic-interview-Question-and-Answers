@@ -707,7 +707,38 @@ const data = await s3.send(new PutObjectCommand({
       Body: "This is the content of the object",
     }));
 
+42. Explain React Lifecycle?
 
+Mounting
+Mounting refers to the phase when a component is being created and inserted into the DOM.
+
+constructor(): This method is called before a component is mounted. It's used for initializing state and binding event handlers.
+
+render(): The render method is mandatory and returns the JSX representing the component's UI.
+
+componentDidMount(): This method is called after the component has been rendered into the DOM. It's often used for fetching data from APIs or initializing third-party libraries.
+
+Updating
+Updating occurs when a component is re-rendered as a result of changes to its props or state.
+
+static getDerivedStateFromProps(): This static method is called every time a component is re-rendered due to changes in props. It returns an object to update the state or null to indicate no change is necessary. Introduced in React 16.3.
+
+shouldComponentUpdate(): This method allows you to control if the component should re-render or not, based on changes in props or state. It's used for performance optimization.
+
+render(): Same as in the mounting phase.
+
+getSnapshotBeforeUpdate(): This method is called right before the changes from the virtual DOM are to be reflected in the actual DOM. It allows you to capture some information from the DOM before it is potentially changed.
+
+componentDidUpdate(): This method is called after the component is updated in the DOM. It's often used for updating the DOM in response to prop or state changes.
+
+Unmounting
+Unmounting happens when a component is removed from the DOM.
+
+componentWillUnmount(): This method is called just before the component is unmounted and destroyed. It's used for cleanup tasks such as removing event listeners or canceling network requests.
+Error Handling (added in React 16)
+static getDerivedStateFromError(): This method is used to render a fallback UI after an error is thrown in a component's child tree. It's called during the "render" phase, so it does not have access to the component instance.
+
+componentDidCatch(): This method is called after an error has been thrown during rendering. It's used to log error information or perform side effects.
 
 
 
